@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Tour 2025 - Paulo Londra</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Arial', sans-serif; background: #000; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; }
+        .estadio-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(213, 43, 30, 0.6), rgba(255, 255, 255, 0.1), rgba(0, 56, 147, 0.6)), url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; filter: brightness(0.4) blur(2px); z-index: -1; }
+        .container { text-align: center; padding: 20px; max-width: 500px; width: 90%; position: relative; z-index: 2; }
+        .logo-londra { width: 100%; max-width: 280px; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5)); animation: flotar 3s ease-in-out infinite; }
+        @keyframes flotar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .btn-tour { background: linear-gradient(45deg, #d52b1e, #003893); color: white; border: none; padding: 18px 35px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; text-transform: uppercase; box-shadow: 0 5px 20px rgba(213, 43, 30, 0.4); transition: 0.3s; }
+        #carta { display: none; background: rgba(255, 255, 255, 0.95); color: #333; padding: 30px; border-radius: 25px; margin-top: 20px; text-align: left; box-shadow: 0 10px 40px rgba(0,0,0,0.8); line-height: 1.6; animation: aparecer 1s ease-out; }
+        @keyframes aparecer { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .audio-player { width: 100%; margin-top: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="estadio-bg"></div>
+    <div class="container">
+        <img src="https://cdn.teleticket.com.pe/especiales/paulo-londra-arequipa-2025/images/logo-paulo-rayo.png" alt="Logo Paulo" class="logo-londra">
+        
+        <div id="inicio">
+            <button class="btn-tour" onclick="mostrarCarta()">¡Iniciemos nuestro tour!</button>
+        </div>
+
+        <div id="carta">
+            <p><strong>Mi amor,</strong></p>
+            <p>En este San Valentín quería darte algo que no se guarde en un cajón, sino que se quede grabado en tu memoria. Sabes que lo nuestro tiene su propio ritmo y su propio flow, por eso, mi regalo es que el próximo 18 de abril vamos a estar ahí, frente a Paulo Londra, cantando cada canción a todo pulmón. Pero lo más lindo de todo es que vamos a recibir el 19 de abril juntos. Vamos a esperar que den las doce en medio de esa energía, celebrando tu vida un día antes de tu cumple de la mejor manera posible. Falta un poquito para que llegue ese día, pero desde hoy ya empiezo a disfrutarlo porque sé que voy a estar al lado tuyo. Gracias por ser mi mejor compañía y por hacer que cada día se sienta como un hit.</p>
+            
+            <audio id="musica" class="audio-player" controls preload="auto">
+                <source src="musica.mp3" type="audio/mpeg">
+                Tu navegador no soporta el audio.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        function mostrarCarta() {
+            document.getElementById('inicio').style.display = 'none';
+            document.getElementById('carta').style.display = 'block';
+            var cancion = document.getElementById('musica');
+            cancion.play().catch(function(error) {
+                console.log("El audio requiere interacción del usuario.");
+            });
+        }
+    </script>
+</body>
+</html>
